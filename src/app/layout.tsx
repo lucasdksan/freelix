@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { _metadata } from "@/utils/_metadata";
-import { roboto } from "@/utils/_fonts";
+import { _metadata } from "@/utils/_metadata-util";
+import { roboto } from "@/utils/_fonts-util";
 
 import "./globals.css";
 
