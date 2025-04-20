@@ -5,12 +5,17 @@
   --foreground: #171717;
 
   --button-background: #161a1d;
+  --form-background: #161a1d;
+  --modal-background: #2e2e2eb3;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-btn-background: var(--button-background);
+  --color-modal-background: var(--modal-background);
+  --color-form-background: var(--form-background);
+
   --font-roboto: var(--font-roboto);
 }
 
