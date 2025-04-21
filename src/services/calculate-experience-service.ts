@@ -21,8 +21,8 @@ export function calculateExperience({ skillLevel, yearsOfExperience }: Experienc
             break;
     }
 
-    const experienceBonus = yearsOfExperience * 2;
-    const hourlyRate = baseRate + experienceBonus;
+    const experienceMultiplier = 1 + Math.min(yearsOfExperience, 20) * 0.05;
+    const hourlyRate = baseRate * experienceMultiplier;
 
     return Math.round(hourlyRate);
 }
