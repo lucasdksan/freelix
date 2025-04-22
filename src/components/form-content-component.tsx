@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FormExpense } from "./form-expense-component";
+import { FormExperience } from "./form-experience-component";
 
 type OptionTab = "expense" | "experience" | "salary";
 
@@ -9,7 +10,7 @@ export function FormContent() {
     const [optionTab, setOptionTab] = useState<OptionTab | null>(null);
     const optionForm = {
         "expense": <FormExpense />,
-        "experience": <div>Experiências</div>,
+        "experience": <FormExperience />,
         "salary": <div>Salário</div>,
     };
     

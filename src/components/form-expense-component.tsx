@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { calculateExpenses } from "@/services/calculate-expenses-service";
-import { FormFieldset } from "./form-fieldset-compoent";
+import { FormFieldsetInput } from "./form-fieldset-input-compoent";
 
 export function FormExpense() {
     const [step, setStep] = useState(1);
@@ -39,7 +39,7 @@ export function FormExpense() {
             <form className="w-full h-full" onSubmit={handleSubmit}>
                 {step === 1 && (
                     <>
-                        <FormFieldset
+                        <FormFieldsetInput
                             title="Despesas Mensais (R$)"
                             htmlFor="monthlyExpenses"
                             placeholder="3200"
@@ -48,7 +48,7 @@ export function FormExpense() {
                             value={formData.monthlyExpenses}
                             onChange={handleChange}
                         />
-                        <FormFieldset
+                        <FormFieldsetInput
                             title="Margem de Lucro Desejada (%)"
                             htmlFor="desiredProfitMargin"
                             placeholder="30"
@@ -61,7 +61,7 @@ export function FormExpense() {
                 )}
                 {step === 2 && (
                     <>
-                        <FormFieldset
+                        <FormFieldsetInput
                             title="Horas Trabalhadas por Mês"
                             htmlFor="workingHoursPerMonth"
                             placeholder="160"
@@ -70,7 +70,7 @@ export function FormExpense() {
                             value={formData.workingHoursPerMonth}
                             onChange={handleChange}
                         />
-                        <FormFieldset
+                        <FormFieldsetInput
                             title="Licenças de Software (R$)"
                             htmlFor="softwareLicenses"
                             placeholder="100"
@@ -83,7 +83,7 @@ export function FormExpense() {
                 )}
                 {step === 3 && (
                     <>
-                        <FormFieldset
+                        <FormFieldsetInput
                             title="Plano de Saúde (R$)"
                             htmlFor="healthInsurance"
                             placeholder="100"
@@ -92,7 +92,7 @@ export function FormExpense() {
                             value={formData.healthInsurance}
                             onChange={handleChange}
                         />
-                        <FormFieldset
+                        <FormFieldsetInput
                             title="Honorários Contador (R$)"
                             htmlFor="accountantFees"
                             placeholder="50"
@@ -105,7 +105,7 @@ export function FormExpense() {
                 )}
                 {step === 4 && (
                     <>
-                        <FormFieldset
+                        <FormFieldsetInput
                             title="Percentual de Impostos (%)"
                             htmlFor="taxesPercentage"
                             placeholder="100"
@@ -114,7 +114,7 @@ export function FormExpense() {
                             value={formData.taxesPercentage}
                             onChange={handleChange}
                         />
-                        <FormFieldset
+                        <FormFieldsetInput
                             title="Percentual para Reserva (%)"
                             htmlFor="reserveFundPercentage"
                             placeholder="50"
@@ -157,7 +157,9 @@ export function FormExpense() {
                             >
                                 Voltar
                             </button>
-                            <button className="w-full items-center justify-center flex gap-2 px-2 py-1 rounded-lg bg-white text-btn-background cursor-pointer font-roboto not-italic font-normal text-lg text-center" type="submit">Calcular</button>
+                            <button className="w-full items-center justify-center flex gap-2 px-2 py-1 rounded-lg bg-white text-btn-background cursor-pointer font-roboto not-italic font-normal text-lg text-center" type="submit">
+                                Gerar Arquivos
+                            </button>
                         </>
                     )}
                 </div>
