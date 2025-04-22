@@ -32,6 +32,12 @@ export function FormExpense() {
 
         setFinalExpenses({ active: true, value: calculateExpenses(formData) });
     };
+    const handleCopy = ()=> {
+        navigator.clipboard.writeText(`${finalExpenses.value}`)
+            .then(()=> {
+                alert("Valor copiado com sucesso!");
+            });
+    }
 
     return (
         <div className="flex flex-col h-full w-full items-start gap-2 justify-start">
@@ -157,8 +163,8 @@ export function FormExpense() {
                             >
                                 Voltar
                             </button>
-                            <button className="w-full items-center justify-center flex gap-2 px-2 py-1 rounded-lg bg-white text-btn-background cursor-pointer font-roboto not-italic font-normal text-lg text-center" type="submit">
-                                Gerar Arquivos
+                            <button onClick={handleCopy} className="w-full items-center justify-center flex gap-2 px-2 py-1 rounded-lg bg-white text-btn-background cursor-pointer font-roboto not-italic font-normal text-lg text-center" type="submit">
+                                Copiar
                             </button>
                         </>
                     )}

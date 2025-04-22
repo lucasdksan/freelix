@@ -1,9 +1,16 @@
 type ExperienceInput = {
     yearsOfExperience: number;
     skillLevel: "junior" | "pleno" | "senior";
+    certificationsCount?: number;
+    specializationArea?: "tech" | "design" | "business" | "marketing";
 }
 
-export function calculateExperience({ skillLevel, yearsOfExperience }: ExperienceInput) {
+export function calculateExperience({
+    skillLevel,
+    yearsOfExperience,
+    certificationsCount = 0,
+    specializationArea = "tech",
+}: ExperienceInput) {
     const sanitizedYears = Math.max(0, Math.min(yearsOfExperience, 40));
 
     let baseRate = 0;
@@ -29,7 +36,31 @@ export function calculateExperience({ skillLevel, yearsOfExperience }: Experienc
     }
 
     const experienceMultiplier = Math.pow(1 + growthRatePerYear, sanitizedYears);
-    const hourlyRate = baseRate * experienceMultiplier;
+
+    // Cada certificação aumenta 2% no rate final
+    const certificationBonusMultiplier = 1 + certificationsCount * 0.02;
+
+    // Área de especialização pode ter ajustes
+    let specializationMultiplier = 1;
+    switch (specializationArea) {
+        case "tech":
+            specializationMultiplier = 1.1; // tech normalmente paga mais
+            break;
+        case "design":
+            specializationMultiplier = 1.05;
+            break;
+        case "business":
+            specializationMultiplier = 1;
+            break;
+        case "marketing":
+            specializationMultiplier = 0.95; // mercado um pouco mais competitivo
+            break;
+        default:
+            specializationMultiplier = 1;
+            break;
+    }
+
+    const hourlyRate = baseRate * experienceMultiplier * certificationBonusMultiplier * specializationMultiplier;
 
     return Math.round(hourlyRate);
 }

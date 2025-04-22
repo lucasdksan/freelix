@@ -1,29 +1,23 @@
 "use client"
 
-import { calculateExperience } from "@/services/calculate-experience-service";
 import { useState } from "react";
 import { FormFieldsetInput } from "./form-fieldset-input-compoent";
-import { FormFieldsetSelect } from "./form-fieldset-select-compoent";
+import { calculateSalary } from "@/services/calculate-salary-service";
 
-export function FormExperience() {
+export function FormSalary() {
     const [step, setStep] = useState(1);
-    const [finalExperience, setFinalExperience] = useState({ active: false, value: 0 });
-    const [formData, setFormData] = useState<{
-        yearsOfExperience: number;
-        skillLevel: "junior" | "pleno" | "senior";
-        certificationsCount: number;
-        specializationArea: "tech" | "design" | "business" | "marketing";
-    }>({
-        yearsOfExperience: 0,
-        skillLevel: "junior",
-        certificationsCount: 0,
-        specializationArea: "tech"
+    const [finalSalary, setFinalSalary] = useState({ active: false, value: 0 });
+    const [formData, setFormData] = useState({
+        mouthlySalary: 0,
+        benefitsValue: 0,
+        workingHoursPerMonth: 160,
+        freelanceMultiplier: 1.3,
     });
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
-            [name]: name === "skillLevel" || name === "specializationArea" ? value : parseFloat(value),
+            [name]: parseFloat(value),
         }));
     };
     const nextStep = () => setStep((prev) => prev === 3 ? prev : prev + 1);
@@ -31,10 +25,10 @@ export function FormExperience() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        setFinalExperience({ active: true, value: calculateExperience(formData) });
+        setFinalSalary({ active: true, value: calculateSalary(formData) });
     };
     const handleCopy = ()=> {
-        navigator.clipboard.writeText(`${finalExperience.value}`)
+        navigator.clipboard.writeText(`${finalSalary.value}`)
             .then(()=> {
                 alert("Valor copiado com sucesso!");
             });
@@ -42,27 +36,26 @@ export function FormExperience() {
 
     return (
         <div className="flex flex-col h-full w-full items-start gap-2 justify-start">
-            <h2 className="font-roboto not-italic font-normal text-lg text-white text-center">Calcular baseado em experiência</h2>
+            <h2 className="font-roboto not-italic font-normal text-lg text-white text-center">Calcular baseado em despesas</h2>
             <form className="w-full h-full" onSubmit={handleSubmit}>
                 {step === 1 && (
                     <>
-                        <FormFieldsetSelect
-                            title="Senioriadade (junior, pleno ou senior)"
-                            htmlFor="skillLevel"
-                            placeholder="junior"
-                            type="text"
-                            name="skillLevel"
-                            value={formData.skillLevel}
-                            items={[{ title: "Junior", value: "junior" }, { title: "Pleno", value: "pleno" }, { title: "Sênior", value: "senior" }]}
+                        <FormFieldsetInput
+                            title="Salário por mês (R$)"
+                            htmlFor="mouthlySalary"
+                            placeholder="3200"
+                            type="number"
+                            name="mouthlySalary"
+                            value={formData.mouthlySalary}
                             onChange={handleChange}
                         />
                         <FormFieldsetInput
-                            title="Anos de experiência (2)"
-                            htmlFor="yearsOfExperience"
-                            placeholder="2"
+                            title="Benefícios (R$)"
+                            htmlFor="benefitsValue"
+                            placeholder="800"
                             type="number"
-                            name="yearsOfExperience"
-                            value={formData.yearsOfExperience}
+                            name="benefitsValue"
+                            value={formData.benefitsValue}
                             onChange={handleChange}
                         />
                     </>
@@ -70,29 +63,28 @@ export function FormExperience() {
                 {step === 2 && (
                     <>
                         <FormFieldsetInput
-                            title="Certificações relevantes"
-                            htmlFor="certificationsCount"
-                            placeholder="2"
+                            title="Horas de trabalho por mês"
+                            htmlFor="workingHoursPerMonth"
+                            placeholder="160"
                             type="number"
-                            name="certificationsCount"
-                            value={formData.certificationsCount}
+                            name="workingHoursPerMonth"
+                            value={formData.workingHoursPerMonth}
                             onChange={handleChange}
                         />
-                        <FormFieldsetSelect
-                            title="Área de especialização"
-                            htmlFor="specializationArea"
-                            placeholder="Tech"
-                            type="text"
-                            name="specializationArea"
-                            value={formData.specializationArea}
-                            items={[{ title: "Tech", value: "tech" }, { title: "Design", value: "design" }, { title: "Business", value: "business" }, { title: "Marketing", value: "marketing" }]}
+                        <FormFieldsetInput
+                            title="Multiplicador autônomo"
+                            htmlFor="freelanceMultiplier"
+                            placeholder="100"
+                            type="number"
+                            name="freelanceMultiplier"
+                            value={formData.freelanceMultiplier}
                             onChange={handleChange}
                         />
                     </>
                 )}
-                {step === 3 && finalExperience.active && (
+                {step === 3 && finalSalary.active && (
                     <div>
-                        Seu valor hora {finalExperience.value}
+                        Seu valor hora {finalSalary.value}
                     </div>
                 )}
                 <div className="flex justify-between mt-3 gap-4">
