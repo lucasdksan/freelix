@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import { FormContent } from "./form-content-component";
+import { TabContentModal } from "./tab-content-modal-component";
 
-export function FormModal() {
+export function MainModal() {
     const [openForm, setOpenForm] = useState(false);
 
     const handleToggleModal = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -24,15 +24,15 @@ export function FormModal() {
                     alt="Arrow icon to start process"
                 />
             </button>
-            { openForm && createPortal(
+            {openForm && createPortal(
                 <>
                     <div onClick={handleToggleModal} className="w-screen h-screen flex items-center justify-center absolute top-0 left-0 z-10 bg-modal-background" />
                     <div className="absolute top-1/2 left-1/2 z-30 bg-form-background w-full h-auto max-w-72 md:max-w-80 rounded-lg transform -translate-x-1/2 -translate-y-1/2 px-2 py-3 md:px-4 md:py-4">
-                        <FormContent />
+                        <TabContentModal />
                     </div>
                 </>,
                 document.body
-            ) }
+            )}
         </>
     );
 }

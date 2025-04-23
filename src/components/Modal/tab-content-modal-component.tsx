@@ -1,18 +1,18 @@
 "use client"
 
 import { useState } from "react";
-import { FormExpense } from "./form-expense-component";
-import { FormExperience } from "./form-experience-component";
-import { FormSalary } from "./form-salary-component";
+import { ExpenseProcess } from "../Process/expense-process-component";
+import { ExperienceProcess } from "../Process/experience-process-component";
+import { SalaryProcess } from "../Process/salary-process-component";
 
 type OptionTab = "expense" | "experience" | "salary";
 
-export function FormContent() {
-    const [optionTab, setOptionTab] = useState<OptionTab | null>(null);
+export function TabContentModal() {
+const [optionTab, setOptionTab] = useState<OptionTab | null>(null);
     const optionForm = {
-        "expense": <FormExpense />,
-        "experience": <FormExperience />,
-        "salary": <FormSalary />,
+        "expense": <ExpenseProcess />,
+        "experience": <ExperienceProcess />,
+        "salary": <SalaryProcess />,
     };
     
     return(

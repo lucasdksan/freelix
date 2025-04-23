@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FormModal } from "@/components/form-modal-component";
+import { MainModal } from "@/components/Modal/main-modal-component";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
           </p>
           <div className="w-full flex gap-3 items-center">
             <span className="font-roboto not-italic font-normal text-base text-white">Vamos iniciar?</span>
-            <FormModal />
+            <MainModal />
           </div>
         </div>
         <div className="w-full h-auto lg:max-w-[520px]">
