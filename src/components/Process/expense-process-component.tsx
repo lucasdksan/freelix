@@ -16,7 +16,7 @@ export function ExpenseProcess() {
             healthInsurance: 0,
             accountantFees: 0,
             taxesPercentage: 2,
-            reserveFundPercentage: 10,
+            otherExpenses: 0,
         });
     
         const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -128,12 +128,12 @@ export function ExpenseProcess() {
                             onChange={handleChange}
                         />
                         <FormFieldsetInput
-                            title="Percentual para Reserva (%)"
-                            htmlFor="reserveFundPercentage"
-                            placeholder="50"
+                            title="Outros Gastos (R$)"
+                            htmlFor="otherExpenses"
+                            placeholder="500"
                             type="number"
-                            name="reserveFundPercentage"
-                            value={formData.reserveFundPercentage}
+                            name="otherExpenses"
+                            value={formData.otherExpenses}
                             onChange={handleChange}
                         />
                     </>

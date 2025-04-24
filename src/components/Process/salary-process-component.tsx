@@ -37,7 +37,7 @@ export function SalaryProcess() {
 
     return (
         <FormSteps
-            titleForm="Calcular baseado em despesas"
+            titleForm="Calcular baseado em Salário"
             step={step}
             maxQuantity={3}
             prevStep={prevStep}
