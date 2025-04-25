@@ -37,12 +37,13 @@ export function SalaryProcess() {
 
     return (
         <FormSteps
+            titleLastButton="Copiar"
             titleForm="Calcular baseado em Salário"
             step={step}
             maxQuantity={3}
             prevStep={prevStep}
             nextStep={nextStep}
-            handleCopy={handleCopy}
+            handleLastBtn={handleCopy}
             handleSubmit={handleSubmit}
         >
             {step === 1 && (

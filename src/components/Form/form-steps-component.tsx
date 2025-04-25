@@ -2,9 +2,10 @@ type FormStepsProps = {
     titleForm: string;
     step: number;
     maxQuantity: number;
+    titleLastButton: string;
     children: React.ReactNode;
     handleSubmit: (e: React.FormEvent) => void;
-    handleCopy: () => void;
+    handleLastBtn: () => void;
     prevStep: () => void;
     nextStep: () => void;
 }
@@ -14,8 +15,9 @@ export function FormSteps({
     step, 
     children, 
     maxQuantity, 
+    titleLastButton,
     handleSubmit, 
-    handleCopy, 
+    handleLastBtn, 
     nextStep, 
     prevStep 
 }: FormStepsProps) {
@@ -51,8 +53,8 @@ export function FormSteps({
                             >
                                 Voltar
                             </button>
-                            <button onClick={handleCopy} className="w-full items-center justify-center flex gap-2 px-2 py-1 rounded-lg bg-white text-btn-background cursor-pointer font-roboto not-italic font-normal text-lg text-center" type="submit">
-                                Copiar
+                            <button onClick={handleLastBtn} className="w-full items-center justify-center flex gap-2 px-2 py-1 rounded-lg bg-white text-btn-background cursor-pointer font-roboto not-italic font-normal text-lg text-center" type="submit">
+                                { titleLastButton }
                             </button>
                         </>
                     )}

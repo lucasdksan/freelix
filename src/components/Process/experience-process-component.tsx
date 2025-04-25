@@ -43,9 +43,10 @@ export function ExperienceProcess() {
 
     return (
         <FormSteps
+            titleLastButton="Copiar"
             titleForm="Calcular baseado em experiência"
             maxQuantity={3}
-            handleCopy={handleCopy}
+            handleLastBtn={handleCopy}
             handleSubmit={handleSubmit}
             nextStep={nextStep}
             prevStep={prevStep}

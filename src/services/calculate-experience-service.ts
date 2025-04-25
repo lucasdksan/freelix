@@ -5,6 +5,28 @@ type ExperienceInput = {
     specializationArea?: "tech" | "design" | "business" | "marketing";
 }
 
+const dataSkillLevel = {
+    "junior": {
+        baseRate: 25,
+        growthRatePerYear: 0.03,
+    },
+    "pleno": {
+        baseRate: 50,
+        growthRatePerYear: 0.04,
+    },
+    "senior": {
+        baseRate: 80,
+        growthRatePerYear: 0.05,
+    },
+}
+
+const dataSpecializationArea = {
+    "tech": 1.1,
+    "design": 1.05,
+    "business": 1,
+    "marketing": 0.95,
+}
+
 export function calculateExperience({
     skillLevel,
     yearsOfExperience,
@@ -12,54 +34,10 @@ export function calculateExperience({
     specializationArea = "tech",
 }: ExperienceInput) {
     const sanitizedYears = Math.max(0, Math.min(yearsOfExperience, 40));
-
-    let baseRate = 0;
-    let growthRatePerYear = 0;
-
-    switch (skillLevel) {
-        case "junior":
-            baseRate = 25;
-            growthRatePerYear = 0.03;
-            break;
-        case "pleno":
-            baseRate = 50;
-            growthRatePerYear = 0.04;
-            break;
-        case "senior":
-            baseRate = 80;
-            growthRatePerYear = 0.05;
-            break;
-        default:
-            baseRate = 30;
-            growthRatePerYear = 0.03;
-            break;
-    }
-
+    const { baseRate, growthRatePerYear } = dataSkillLevel[skillLevel];
     const experienceMultiplier = Math.pow(1 + growthRatePerYear, sanitizedYears);
-
-    // Cada certificação aumenta 2% no rate final
     const certificationBonusMultiplier = 1 + certificationsCount * 0.02;
-
-    // Área de especialização pode ter ajustes
-    let specializationMultiplier = 1;
-    switch (specializationArea) {
-        case "tech":
-            specializationMultiplier = 1.1; // tech normalmente paga mais
-            break;
-        case "design":
-            specializationMultiplier = 1.05;
-            break;
-        case "business":
-            specializationMultiplier = 1;
-            break;
-        case "marketing":
-            specializationMultiplier = 0.95; // mercado um pouco mais competitivo
-            break;
-        default:
-            specializationMultiplier = 1;
-            break;
-    }
-
+    const specializationMultiplier = dataSpecializationArea[specializationArea];
     const hourlyRate = baseRate * experienceMultiplier * certificationBonusMultiplier * specializationMultiplier;
 
     return Math.round(hourlyRate);
