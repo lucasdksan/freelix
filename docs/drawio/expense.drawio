@@ -1,0 +1,45 @@
+<mxfile host="65bd71144e">
+    <diagram id="mcoXSG51egkqBWXHrh-9" name="Page-1">
+        <mxGraphModel dx="1189" dy="667" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="15" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="48" y="20" width="755" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="15">
+                    <mxGeometry width="755" height="480" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;b&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;Freelix - Expense&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="15">
+                    <mxGeometry x="230" y="30" width="295" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="edgeStyle=none;html=1;" edge="1" parent="15" source="4" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;ul&gt;&lt;li&gt;Despesas mensais fixas&lt;/li&gt;&lt;li&gt;Margem de lucro desejada (%)&lt;/li&gt;&lt;li&gt;Carga horária mensal (em horas)&lt;/li&gt;&lt;li&gt;Licenças de software (R$)&lt;/li&gt;&lt;li&gt;Plano de saúde (R$)&lt;/li&gt;&lt;li&gt;Honorários do contador (R$)&lt;/li&gt;&lt;li&gt;Percentual de impostos (%)&lt;/li&gt;&lt;li&gt;Outros gastos diversos (R$)&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" vertex="1" parent="15">
+                    <mxGeometry x="22" y="100" width="250" height="180" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="edgeStyle=none;html=1;" edge="1" parent="15" source="5" target="11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="F(x)" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="15">
+                    <mxGeometry x="357.5" y="170" width="40" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=none;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="15" source="7" target="5">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="272" y="290"/>
+                            <mxPoint x="378" y="290"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="vB(mE) = [(mE/12)*(1/3)]&lt;br&gt;fC(mE,&lt;span style=&quot;color: rgb(0, 0, 0);&quot;&gt;sL,hI,aE,oE&lt;/span&gt;) = mE+(mE/12)+vB(mE)+sL+hI+aE+oE&lt;div&gt;tWT(&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;mE,&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;sL,hI,aE,oE, tP&lt;/span&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;) = fC(&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;mE,&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;sL,hI,aE,oE&lt;/span&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;) * (1 (tP/100))&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;tWP&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;mE,&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;sL,hI,aE,oE, tP, dPM&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;)&lt;/span&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&amp;nbsp;=&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;tWT(&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;mE,&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;sL,hI,aE,oE, tP&lt;/span&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;) * (1 + (dPM/100))&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;color: rgb(63, 63, 63); background-color: transparent;&quot;&gt;F(&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;mE,&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;sL,hI,aE,oE, tP, dPM, wHPM&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;) =&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;tWP&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;(&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;mE,&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(0, 0, 0);&quot;&gt;sL,hI,aE,oE, tP, dPM&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: rgb(63, 63, 63);&quot;&gt;) / wHPM&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="15">
+                    <mxGeometry x="62" y="321" width="420" height="119" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Valor por Hora" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="15">
+                    <mxGeometry x="492" y="160" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
