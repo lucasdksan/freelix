@@ -19,7 +19,7 @@ export function EstimateTermProcess() {
         complexity: "baixa",
         monthlyCost: 0,
         dailyHoursAvailable: 2,
-        profitMargin: 0.2
+        profitMargin: 20
     });
     const [finalEstimateTerm, setFinalEstimateTerm] = useState<{
         term: string;
@@ -70,6 +70,7 @@ export function EstimateTermProcess() {
                         title="Anos de experiência (2)"
                         htmlFor="experience"
                         placeholder="2"
+                        min={1}
                         type="number"
                         name="experience"
                         value={formData.experience}
@@ -94,6 +95,7 @@ export function EstimateTermProcess() {
                         htmlFor="monthlyCost"
                         placeholder="2500"
                         type="number"
+                        min={0}
                         name="monthlyCost"
                         value={formData.monthlyCost}
                         onChange={handleChange}
@@ -107,6 +109,7 @@ export function EstimateTermProcess() {
                         htmlFor="dailyHoursAvailable"
                         placeholder="8"
                         type="number"
+                        min={1}
                         name="dailyHoursAvailable"
                         value={formData.dailyHoursAvailable}
                         onChange={handleChange}
@@ -116,6 +119,7 @@ export function EstimateTermProcess() {
                         htmlFor="profitMargin"
                         placeholder="20"
                         type="number"
+                        min={5}
                         name="profitMargin"
                         value={formData.profitMargin}
                         onChange={handleChange}

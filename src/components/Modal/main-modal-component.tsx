@@ -13,12 +13,13 @@ export function MainModal() {
     const handleToggleModal = (event: React.MouseEvent<HTMLDivElement>) => {
         event.stopPropagation();
         setOpenForm((prev) => !prev);
+        setTypeProcess(null);
     }
 
     const process = {
         "estimate-hours": <TabContentModal />,
         "estimate-term": <TermContentModal /> 
-    }
+    };
 
     return (
         <>
@@ -36,7 +37,7 @@ export function MainModal() {
                     <div onClick={handleToggleModal} className="w-screen h-screen flex items-center justify-center absolute top-0 left-0 z-10 bg-modal-background" />
                     <div className="absolute top-1/2 left-1/2 z-30 bg-form-background w-full h-auto max-w-72 md:max-w-80 rounded-lg transform -translate-x-1/2 -translate-y-1/2 px-2 py-3 md:px-4 md:py-4">
                         { !typeProcess ? (
-                            <div className="w-full h-auto flex flex-col">
+                            <div className="w-full h-auto flex flex-col items-center justify-center gap-3">
                                 <span className="font-roboto not-italic font-normal text-base text-white">Qual processo você deseja?</span>
                                 <div className="flex gap-2">
                                     <button 

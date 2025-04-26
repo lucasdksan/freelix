@@ -58,6 +58,7 @@ export function ExpenseProcess() {
                         htmlFor="monthlyExpenses"
                         placeholder="3200"
                         type="number"
+                        min={0}
                         name="monthlyExpenses"
                         value={formData.monthlyExpenses}
                         onChange={handleChange}
@@ -67,6 +68,7 @@ export function ExpenseProcess() {
                         htmlFor="desiredProfitMargin"
                         placeholder="30"
                         type="number"
+                        min={5}
                         name="desiredProfitMargin"
                         value={formData.desiredProfitMargin}
                         onChange={handleChange}
@@ -80,6 +82,7 @@ export function ExpenseProcess() {
                         htmlFor="workingHoursPerMonth"
                         placeholder="160"
                         type="number"
+                        min={0}
                         name="workingHoursPerMonth"
                         value={formData.workingHoursPerMonth}
                         onChange={handleChange}
@@ -89,6 +92,7 @@ export function ExpenseProcess() {
                         htmlFor="softwareLicenses"
                         placeholder="100"
                         type="number"
+                        min={0}
                         name="softwareLicenses"
                         value={formData.softwareLicenses}
                         onChange={handleChange}
@@ -102,6 +106,7 @@ export function ExpenseProcess() {
                         htmlFor="healthInsurance"
                         placeholder="100"
                         type="number"
+                        min={0}
                         name="healthInsurance"
                         value={formData.healthInsurance}
                         onChange={handleChange}
@@ -111,6 +116,7 @@ export function ExpenseProcess() {
                         htmlFor="accountantFees"
                         placeholder="50"
                         type="number"
+                        min={0}
                         name="accountantFees"
                         value={formData.accountantFees}
                         onChange={handleChange}
@@ -122,8 +128,9 @@ export function ExpenseProcess() {
                     <FormFieldsetInput
                         title="Percentual de Impostos (%)"
                         htmlFor="taxesPercentage"
-                        placeholder="100"
+                        placeholder="10"
                         type="number"
+                        min={5}
                         name="taxesPercentage"
                         value={formData.taxesPercentage}
                         onChange={handleChange}
@@ -133,6 +140,7 @@ export function ExpenseProcess() {
                         htmlFor="otherExpenses"
                         placeholder="500"
                         type="number"
+                        min={0}
                         name="otherExpenses"
                         value={formData.otherExpenses}
                         onChange={handleChange}

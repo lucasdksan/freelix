@@ -69,6 +69,7 @@ export function ExperienceProcess() {
                         htmlFor="yearsOfExperience"
                         placeholder="2"
                         type="number"
+                        min={1}
                         name="yearsOfExperience"
                         value={formData.yearsOfExperience}
                         onChange={handleChange}
@@ -82,6 +83,7 @@ export function ExperienceProcess() {
                         htmlFor="certificationsCount"
                         placeholder="2"
                         type="number"
+                        min={0}
                         name="certificationsCount"
                         value={formData.certificationsCount}
                         onChange={handleChange}

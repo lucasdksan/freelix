@@ -53,6 +53,7 @@ export function SalaryProcess() {
                         htmlFor="mouthlySalary"
                         placeholder="3200"
                         type="number"
+                        min={0}
                         name="mouthlySalary"
                         value={formData.mouthlySalary}
                         onChange={handleChange}
@@ -62,6 +63,7 @@ export function SalaryProcess() {
                         htmlFor="benefitsValue"
                         placeholder="800"
                         type="number"
+                        min={0}
                         name="benefitsValue"
                         value={formData.benefitsValue}
                         onChange={handleChange}
@@ -75,6 +77,7 @@ export function SalaryProcess() {
                         htmlFor="workingHoursPerMonth"
                         placeholder="160"
                         type="number"
+                        min={0}
                         name="workingHoursPerMonth"
                         value={formData.workingHoursPerMonth}
                         onChange={handleChange}
@@ -84,6 +87,8 @@ export function SalaryProcess() {
                         htmlFor="freelanceMultiplier"
                         placeholder="100"
                         type="number"
+                        min={0}
+                        step={0.1}
                         name="freelanceMultiplier"
                         value={formData.freelanceMultiplier}
                         onChange={handleChange}
