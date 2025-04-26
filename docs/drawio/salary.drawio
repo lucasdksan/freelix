@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="mcoXSG51egkqBWXHrh-9" name="Page-1">
-        <mxGraphModel dx="621" dy="278" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="832" dy="278" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -10,13 +10,13 @@
                 <mxCell id="3" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="15" vertex="1">
                     <mxGeometry width="755" height="480" as="geometry"/>
                 </mxCell>
-                <mxCell id="2" value="&lt;b&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;Freelix - Expense&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="15" vertex="1">
+                <mxCell id="2" value="&lt;b&gt;&lt;font style=&quot;font-size: 30px;&quot;&gt;Freelix - Salário&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="15" vertex="1">
                     <mxGeometry x="230" y="30" width="295" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="" style="edgeStyle=none;html=1;" parent="15" source="4" target="5" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="4" value="&lt;ul&gt;&lt;li&gt;Despesas mensais fixas&lt;/li&gt;&lt;li&gt;Margem de lucro desejada (%)&lt;/li&gt;&lt;li&gt;Carga horária mensal (em horas)&lt;/li&gt;&lt;li&gt;Licenças de software (R$)&lt;/li&gt;&lt;li&gt;Plano de saúde (R$)&lt;/li&gt;&lt;li&gt;Honorários do contador (R$)&lt;/li&gt;&lt;li&gt;Percentual de impostos (%)&lt;/li&gt;&lt;li&gt;Outros gastos diversos (R$)&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="15" vertex="1">
+                <mxCell id="4" value="&lt;ul&gt;&lt;li&gt;Salário por mês (R$)&lt;/li&gt;&lt;li&gt;Benefícios (R$)&lt;/li&gt;&lt;li&gt;Horas de trabalho por mês(Horas)&lt;/li&gt;&lt;li&gt;Multiplicador autônomo&lt;/li&gt;&lt;/ul&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="15" vertex="1">
                     <mxGeometry x="22" y="100" width="250" height="180" as="geometry"/>
                 </mxCell>
                 <mxCell id="12" value="" style="edgeStyle=none;html=1;" parent="15" source="5" target="11" edge="1">
