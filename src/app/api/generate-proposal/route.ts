@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
     const {
-        cite, day,
+        city, day,
         mouth, year,
         nameCompany, partners,
         descriptionProducts, name,
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
             {
                 properties: {},
                 children: [
-                    new Paragraph({ text: `${cite}, ${day} de ${mouth} de ${year}`, spacing: { after: 300 } }),
+                    new Paragraph({ text: `${city}, ${day} de ${mouth} de ${year}`, spacing: { after: 300 } }),
                     new Paragraph({ text: "Proposta Comercial", spacing: { after: 300 }, heading: "Heading1" }),
                     new Paragraph({ text: "A", spacing: { after: 100 } }),
                     new Paragraph({ text: nameCompany, spacing: { after: 100 } }),

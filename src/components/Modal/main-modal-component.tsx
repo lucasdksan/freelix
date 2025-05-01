@@ -5,6 +5,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 import { TabContentModal } from "./tab-content-modal-component";
 import { TermContentModal } from "./term-content-modal-component";
+import ExampleProcess from "../Process/example-process-component";
 
 export function MainModal() {
     const [openForm, setOpenForm] = useState(false);
@@ -54,6 +55,7 @@ export function MainModal() {
                                     >  
                                         Estimar contratos
                                     </button>
+                                    <ExampleProcess />
                                 </div>
                             </div>
                         ) : (
