@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FormSteps } from "../Form/form-steps-component";
 import { FormFieldsetSelect } from "../Form/form-fieldset-select-compoent";
 import { FormFieldsetInput } from "../Form/form-fieldset-input-compoent";
-import { estimateTermValue } from "@/services/estimate-term-value-service";
+import { estimateTermValue } from "@/frontend/services/estimate-term-value-service";
 import { GenerateTermProcess } from "./generate-term-process-component";
 
 export function EstimateTermProcess() {

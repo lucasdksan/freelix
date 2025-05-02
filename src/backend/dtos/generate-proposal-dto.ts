@@ -12,7 +12,6 @@ export const generateProposalSchema = z.object({
     value: z.string(),
     address: z.string(), 
     phone: z.string(),
-    signatureDate: z.string(),
 });
 
 export type GenerateProposalDTO = z.infer<typeof generateProposalSchema>;

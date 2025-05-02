@@ -10,5 +10,5 @@ const gPView = new  GenerateProposalView();
 export async function POST(req: Request) {
     const controller = new GenerateProposalController(gPService, gPView);
 
-    return controller.POST(req);
+    return await controller.POST(req);
 }

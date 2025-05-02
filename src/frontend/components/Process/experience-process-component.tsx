@@ -1,6 +1,6 @@
 "use client"
 
-import { calculateExperience } from "@/services/calculate-experience-service";
+import { calculateExperience } from "@/frontend/services/calculate-experience-service";
 import { useState } from "react";
 import { FormSteps } from "../Form/form-steps-component";
 import { FormFieldsetSelect } from "../Form/form-fieldset-select-compoent";

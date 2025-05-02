@@ -32,7 +32,7 @@ export class CreateDocument {
                     },
                     children: [
                         new Paragraph({
-                            alignment: AlignmentType.LEFT,
+                            alignment: AlignmentType.CENTER,
                             children: [
                                 new TextRun({
                                     text: data.city,
@@ -78,16 +78,7 @@ export class CreateDocument {
                             alignment: AlignmentType.LEFT,
                             children: [
                                 new TextRun({
-                                    text: "A",
-                                    bold: true,
-                                }),
-                            ],
-                        }),
-                        new Paragraph({
-                            alignment: AlignmentType.LEFT,
-                            children: [
-                                new TextRun({
-                                    text: `${data.nameCompany},`,
+                                    text: `A ${data.nameCompany},`,
                                     bold: true,
                                 }),
                             ],
@@ -120,7 +111,6 @@ export class CreateDocument {
                                 }),
                                 new TextRun({
                                     text: data.descriptionProducts,
-                                    bold: true,
                                 }),
                             ],
                         }),
@@ -128,20 +118,9 @@ export class CreateDocument {
                             alignment: AlignmentType.LEFT,
                             children: [
                                 new TextRun({
-                                    text: "Desde já agradecemos a oportunidade e nos colocamos à disposição para",
+                                    text: "Desde já agradecemos a oportunidade e nos colocamos à disposição para quaisquer esclarecimentos.",
                                 }),
                             ],
-                        }),
-                        new Paragraph({
-                            alignment: AlignmentType.LEFT,
-                            children: [
-                                new TextRun({
-                                    text: "quaisquer esclarecimentos.",
-                                }),
-                            ],
-                            spacing: {
-                                after: 400,
-                            },
                         }),
                         new Paragraph({
                             alignment: AlignmentType.LEFT,
@@ -159,7 +138,6 @@ export class CreateDocument {
                             children: [
                                 new TextRun({
                                     text: `${data.name} - Diretor`,
-                                    bold: true,
                                 }),
                             ],
                             spacing: {

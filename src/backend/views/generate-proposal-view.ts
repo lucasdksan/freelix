@@ -10,6 +10,8 @@ export class GenerateProposalView {
     }
 
     errorZod(error: any) {
+        console.log(error);
+
         return Response.json({
             success: false,
             message: "Validation failed",

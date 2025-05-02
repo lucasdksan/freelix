@@ -1,6 +1,6 @@
 "use client"
 
-import { calculateExpenses } from "@/services/calculate-expenses-service";
+import { calculateExpenses } from "@/frontend/services/calculate-expenses-service";
 import { useState } from "react";
 import { FormSteps } from "../Form/form-steps-component";
 import { FormFieldsetInput } from "../Form/form-fieldset-input-compoent";

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { calculateSalary } from "@/services/calculate-salary-service";
+import { calculateSalary } from "@/frontend/services/calculate-salary-service";
 import { FormSteps } from "../Form/form-steps-component";
 import { FormFieldsetInput } from "../Form/form-fieldset-input-compoent";
 

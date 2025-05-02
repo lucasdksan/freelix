@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MainModal } from "@/components/Modal/main-modal-component";
+import { MainModal } from "@/frontend/components/Modal/main-modal-component";
 
 export default function Home() {
   return (
