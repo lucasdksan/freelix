@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { GenerateProposalDTO } from "@/backend/dtos/generate-proposal-dto";
+import { GenerateProposalDTO } from "../dtos/generate-proposal-dto";
 
 type Props = {
     city?: string;
@@ -15,7 +15,7 @@ type Props = {
     partners?: string | undefined;
 }
 
-export function GenerateProposalUtil(props: Props): GenerateProposalDTO{
+export function GenerateProposalHelper(props: Props): GenerateProposalDTO{
     return {
         city: props.city ?? faker.location.city(),
         nameCompany: props.nameCompany ?? faker.company.name(),

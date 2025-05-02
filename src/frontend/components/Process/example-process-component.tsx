@@ -1,4 +1,4 @@
-import { example } from "@/utils/_example-util";
+import { example } from "@/frontend/utils/_example-util";
 
 export default function ExampleProcess() {
     const handleSubmitTest = () => {

@@ -1,11 +1,11 @@
-import { GenerateProposalUtil } from "@/utils/_generate-proposal-util";
 import { GenerateProposalDTO, generateProposalSchema } from "../generate-proposal-dto";
+import { GenerateProposalHelper } from "@/backend/helpers/generate-proposal-helper";
 
 describe("Generate Proposal DTO", () => {
     let props: GenerateProposalDTO;
 
     beforeEach(() => {
-        props = GenerateProposalUtil({});
+        props = GenerateProposalHelper({});
     });
 
     it("should generate a valid proposal DTO", () => {

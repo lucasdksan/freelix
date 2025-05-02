@@ -1,7 +1,7 @@
 import { Document } from "docx";
 import { GenerateProposalDTO } from "@/backend/dtos/generate-proposal-dto";
 import { CreateDocument } from "../create-document-method";
-import { GenerateProposalUtil } from "@/utils/_generate-proposal-util";
+import { GenerateProposalHelper } from "@/backend/helpers/generate-proposal-helper";
 
 jest.mock("docx", () => {
     const originalModule = jest.requireActual("docx");
@@ -36,7 +36,7 @@ describe("CreateDocument", () => {
 
     beforeEach(() => {
         sut = new CreateDocument();
-        mockData = GenerateProposalUtil({
+        mockData = GenerateProposalHelper({
             nameCompany: "Empresa Teste",
             name: "João Silva",
             city: "São Paulo",
