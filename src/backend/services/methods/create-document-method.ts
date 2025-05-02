@@ -1,5 +1,5 @@
 import { GenerateProposalDTO } from "@/backend/dtos/generate-proposal-dto";
-import { Document, HeadingLevel, Paragraph, TextRun, AlignmentType, TabStopPosition, LeaderType, TabStop, SectionType, Table, TableRow, TableCell, VerticalAlign, Footer } from "docx";
+import { Document, HeadingLevel, Paragraph, TextRun, AlignmentType, TabStopPosition, SectionType, Footer } from "docx";
 
 export class CreateDocument {
     private readonly date: Date = new Date();

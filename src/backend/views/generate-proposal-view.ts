@@ -1,4 +1,6 @@
-export class GenerateProposalView {
+import { GPViewInterface } from "../interfaces/gp-view-interface";
+
+export class GenerateProposalView implements GPViewInterface {
     response(buffer: Buffer<ArrayBufferLike>) {
         return new Response(buffer, {
             status: 200,

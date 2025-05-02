@@ -1,11 +1,11 @@
 import { generateProposalSchema } from "../dtos/generate-proposal-dto";
-import { GenerateProposalService } from "../services/generate-proposal-service";
-import { GenerateProposalView } from "../views/generate-proposal-view";
+import { GPServiceInterface } from "../interfaces/gp-service-interface";
+import { GPViewInterface } from "../interfaces/gp-view-interface";
 
 export class GenerateProposalController {
     constructor(
-        private readonly gPService: GenerateProposalService,
-        private readonly gPView: GenerateProposalView,
+        private readonly gPService: GPServiceInterface,
+        private readonly gPView: GPViewInterface,
     ){}
 
     async POST(req: Request) {
