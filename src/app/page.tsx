@@ -1,3 +1,4 @@
+import ModalButtonViewModel from "@/frontend/components/ModalButton/modal-button-viewmodel";
 import Image from "next/image";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
           </p>
           <div className="w-full flex gap-3 items-center">
             <span className="font-roboto not-italic font-normal text-base text-white">Vamos iniciar?</span>
+            <ModalButtonViewModel />
           </div>
         </div>
         <div className="w-full h-auto lg:max-w-[520px]">
