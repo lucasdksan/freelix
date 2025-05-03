@@ -3,6 +3,7 @@ import { _metadata } from "@/frontend/utils/_metadata-util";
 import { roboto } from "@/frontend/utils/_fonts-util";
 
 import "./globals.css";
+import { ModalProvider } from "@/frontend/contexts/Modal/modal-provider";
 
 export const metadata: Metadata = _metadata;
 export default function RootLayout({
@@ -13,7 +14,9 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body className={`${roboto.variable} antialiased`}>
-        {children}
+        <ModalProvider>
+          {children}
+        </ModalProvider>
       </body>
     </html>
   );
