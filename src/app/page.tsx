@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { ModalButtonViewModel } from "@/frontend/components/ModalButton/modal-button-viewmodel";
 import { ModalContentViewModel } from "@/frontend/components/ModalContente/modal-content-viewmodel";
+import { createFormStep } from "@/frontend/ui/form-step-ui";
 
 export default function Home() {
+  const Form = createFormStep("default");
+
   return (
     <main className="w-screen h-screen md:flex md:items-center md:justify-center">
       <div className="container mx-auto flex flex-col p-3 gap-6 md:flex-row md:items-center md:justify-center md:gap-9">
@@ -28,7 +31,17 @@ export default function Home() {
         </div>
       </div>
       <ModalContentViewModel>
-        <span>Oi Lucas!!</span>
+        <Form
+          handleLastBtn={()=>{}}
+          maxQuantity={3}
+          step={2}
+          nextStep={()=>{}}
+          prevStep={()=>{}}
+          titleForm="Form test"
+          titleLastButton="Ai pai para"
+        > 
+          <span>Ai que delicia</span>
+        </Form>
       </ModalContentViewModel>
     </main>
   );
