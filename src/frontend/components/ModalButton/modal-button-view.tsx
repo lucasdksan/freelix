@@ -1,21 +1,20 @@
-import { JSX } from "react";
-import modalButtonModel from "./modal-button-model";
+"use client"
+
 import Image from "next/image";
+import { modalButtonModel } from "./modal-button-model";
 
-type ModalButtonViewProps = {
-    Button: (props: React.ButtonHTMLAttributes<HTMLButtonElement>) => JSX.Element;
-} & ReturnType<typeof modalButtonModel>;
+type ModalButtonViewProps = ReturnType<typeof modalButtonModel>;
 
-export default function ModalButtonView({ Button, ...props } : ModalButtonViewProps) {
+export function ModalButtonView({ Button, ...props }: ModalButtonViewProps) {
     return (
-        <Button aria-label="Iniciar processo grátis" onClick={props.onClick} >
-            <span className="font-roboto not-italic font-medium text-base text-white">Grátis</span>
+        <Button arial-label="Iniciar o processo" onClick={props.handleClick}>
+            <span className="font-roboto font-medium not-italic text-base text-white">Grátis</span>
             <Image
                 src="/arrow-right.svg"
                 width={24}
                 height={24}
-                alt="Arrow icon the start process"
-            /> 
+                alt="Arrow icon to start process"
+            />
         </Button>
     );
 }

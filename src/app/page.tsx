@@ -1,5 +1,6 @@
-import ModalButtonViewModel from "@/frontend/components/ModalButton/modal-button-viewmodel";
 import Image from "next/image";
+import { ModalButtonViewModel } from "@/frontend/components/ModalButton/modal-button-viewmodel";
+import { ModalContentViewModel } from "@/frontend/components/ModalContente/modal-content-viewmodel";
 
 export default function Home() {
   return (
@@ -26,6 +27,9 @@ export default function Home() {
           />
         </div>
       </div>
+      <ModalContentViewModel>
+        <span>Oi Lucas!!</span>
+      </ModalContentViewModel>
     </main>
   );
 }

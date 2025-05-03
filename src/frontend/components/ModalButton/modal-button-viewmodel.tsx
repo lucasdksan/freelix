@@ -1,10 +1,12 @@
-import { createButton } from "../ui/button-ui";
-import modalButtonModel from "./modal-button-model";
-import ModalButtonView from "./modal-button-view";
+"use client"
 
-export default function ModalButtonViewModel() {
-    const Button = createButton("default", "");
-    const { onClick } = modalButtonModel();
+import { modalButtonModel } from "./modal-button-model"
+import { ModalButtonView } from "./modal-button-view";
 
-    return <ModalButtonView Button={Button} onClick={onClick} />;
+export function ModalButtonViewModel() {
+    const { Button, handleClick } = modalButtonModel();
+
+    return(
+        <ModalButtonView Button={Button} handleClick={handleClick} />
+    );
 }
