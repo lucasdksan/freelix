@@ -8,7 +8,7 @@ type ModalButtonViewProps = ReturnType<typeof modalButtonModel>;
 export function ModalButtonView({ Button, ...props }: ModalButtonViewProps) {
     return (
         <Button arial-label="Iniciar o processo" onClick={props.handleClick}>
-            <span className="font-roboto font-medium not-italic text-base text-white">Grátis</span>
+            <span className="font-roboto font-medium not-italic text-base text-black">Grátis</span>
             <Image
                 src="/arrow-right.svg"
                 width={24}

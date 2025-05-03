@@ -8,10 +8,11 @@ type ModalContentViewModelProps = {
 };
 
 export function ModalContentViewModel({ children }:ModalContentViewModelProps) {
-    const { handleClick, stateModal } = modalContentModel();
+    const { handleClick, Button, stateModal } = modalContentModel();
 
     return(
         <ModalContentView 
+            Button={Button}
             handleClick={handleClick} 
             stateModal={stateModal} 
             children={children} 

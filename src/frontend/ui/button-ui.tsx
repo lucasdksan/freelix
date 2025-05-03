@@ -2,7 +2,7 @@ type StrategiesValues = "default" | "modalBtn";
 
 const styleStrategies = {
     default: (newClass?: string) =>
-        ({ className: `cursor-pointer flex outline-none border-none ${ newClass ?? "bg-transparent" }` }),
+        ({ className: `cursor-pointer flex outline-0 border-none ${ newClass ?? "bg-transparent" }` }),
     modalBtn: (newClass?: string) => 
         ({ className: `flex gap-2 px-2 py-1 rounded-lg cursor-pointer font-roboto not-italic font-medium text-base ${newClass ?? ""}` }),
 };
