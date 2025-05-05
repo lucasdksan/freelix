@@ -3,7 +3,7 @@ import { Document, HeadingLevel, Paragraph, TextRun, AlignmentType, TabStopPosit
 
 export class CreateDocument {
     private readonly date: Date = new Date();
-    private readonly mouths: string[] = [ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" ];
+    private readonly months: string[] = [ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" ];
     private createTocEntry(text: string, pageNumber: number): Paragraph {
         return new Paragraph({
             tabStops: [
@@ -49,7 +49,7 @@ export class CreateDocument {
                                     text: " de ",
                                 }),
                                 new TextRun({
-                                    text: this.mouths[this.date.getMonth()],
+                                    text: this.months[this.date.getMonth()],
                                     bold: true,
                                 }),
                                 new TextRun({

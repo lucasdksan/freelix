@@ -5,9 +5,7 @@ type FieldsetFormProps = {
     titleForm: string;
     step: number;
     maxQuantity: number;
-    titleLastButton: string;
     children: React.ReactNode;
-    handleLastBtn: () => void;
     prevStep: () => void;
     nextStep: () => void;
 } & React.FormHTMLAttributes<HTMLFormElement>;
@@ -27,10 +25,8 @@ export function createFormStep(strategy: StrategiesValues = "default") {
     const getStyle = styleStrategies[strategy] || styleStrategies.default;
 
     return function({
-        handleLastBtn,
         nextStep, 
         prevStep,
-        titleLastButton,
         maxQuantity,
         titleForm,
         children,
@@ -51,8 +47,8 @@ export function createFormStep(strategy: StrategiesValues = "default") {
                                 Próximo
                             </Button>
                         ) : (
-                            <Button type="button" onClick={handleLastBtn}>
-                                { titleLastButton }
+                            <Button type="submit">
+                                Gerar
                             </Button>
                         ) }
                     </div>
