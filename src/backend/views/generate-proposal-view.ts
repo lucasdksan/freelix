@@ -12,8 +12,6 @@ export class GenerateProposalView implements GPViewInterface {
     }
 
     errorZod(error: any) {
-        console.log(error);
-
         return Response.json({
             success: false,
             message: "Validation failed",

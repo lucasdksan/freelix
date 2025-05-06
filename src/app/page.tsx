@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ModalButtonViewModel } from "@/frontend/components/ModalButton/modal-button-viewmodel";
 import { ModalContentViewModel } from "@/frontend/components/ModalContent/modal-content-viewmodel";
-import { SalaryFormViewModel } from "@/frontend/components/SalaryForm/salary-form-viewmodel";
+import { ExperienceFormViewModel } from "@/frontend/components/ExperienceForm/experience-form-viewmodel";
 
 export default function Home() {
   return (
@@ -29,7 +29,7 @@ export default function Home() {
         </div>
       </div>
       <ModalContentViewModel>
-        <SalaryFormViewModel />
+        <ExperienceFormViewModel />
       </ModalContentViewModel>
     </main>
   );

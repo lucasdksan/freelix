@@ -5,7 +5,7 @@ type ModalButtonViewProps = { value: string | number; } & ReturnType<typeof copy
 
 export function CopyElementView({ Button, value, ...props }: ModalButtonViewProps) {
     return (
-        <Button arial-label="Copiar o valor" onClick={() => { props.handleCopyArea(value) }}>
+        <Button arial-label="Copiar o valor" onClick={() => props.handleCopyArea(value) }>
             <Image
                 src="/file.svg"
                 width={24}
