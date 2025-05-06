@@ -1,12 +1,21 @@
 "use client"
 
+import { CopyElementViewModel } from "../CopyElement/copy-element-viewmodel";
 import { salaryFormModel } from "./salary-form-model";
 
 type SalaryFormViewProps = {} & ReturnType<typeof salaryFormModel>;
 
 export function SalaryFormView({ 
     Form, 
-    Input, nextStep, prevStep, handleSubmit, onSubmit, register, finalResult, errors, step }: SalaryFormViewProps) {
+    Input, 
+    nextStep, 
+    prevStep, 
+    handleSubmit, 
+    onSubmit, 
+    register, 
+    finalResult, 
+    errors, 
+    step }: SalaryFormViewProps) {
     return (
         <Form
             maxQuantity={3}
@@ -69,9 +78,15 @@ export function SalaryFormView({
                     </div>
                 </>
             )}
+            {step === 3 && (!errors.freelanceMultiplier && !errors.workingHoursPerMonth) && !finalResult && (
+                <div className="flex flex-row items-start gap-3 mt-2 mb-4">
+                    <span className="font-roboto not-italic font-normal text-white text-md">Clique no botão gerar para visualizar o resultado final</span>
+                </div>
+            )}
             {step === 3 && (!errors.freelanceMultiplier && !errors.workingHoursPerMonth) && finalResult && (
-                <div>
-                    Seu resultado final: { finalResult }
+                <div className="flex flex-row items-start gap-3 mt-2 mb-4">
+                    <span className="font-roboto not-italic font-normal text-white text-md">Seu resultado final: { finalResult } </span>
+                    <CopyElementViewModel value={finalResult} />
                 </div>
             )}
         </Form>

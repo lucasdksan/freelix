@@ -1,12 +1,12 @@
 "use client"
 
-import { createFormStep } from "@/frontend/ui/form-step-ui";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { SalaryFormData, schema } from "./salary-schema";
+import { createFormStep } from "@/frontend/ui/form-step-ui";
 import { createFieldsetInput } from "@/frontend/ui/fieldset-input-ui";
 import { calculateSalary } from "@/frontend/services/calculate-salary-service";
+import { SalaryFormData, schema } from "./salary-schema";
 
 export function salaryFormModel() {
     const {
@@ -26,7 +26,11 @@ export function salaryFormModel() {
         setFinalResult(result);
     }
     const Form = createFormStep("default");
-    const Input = createFieldsetInput("default");
+    const Input = createFieldsetInput("default", {
+        inputClass: "p-2 border-2 rounded-lg text-white text-start",
+        fieldsetClass: "flex flex-col items-start justify-center gap-2 mb-2",
+        labelClass: "text-base text-white text-center",
+    });
 
     return {
         step,

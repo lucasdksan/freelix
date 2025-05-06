@@ -14,7 +14,7 @@ const styleStrategies = {
         ({ 
             fieldsetClassName: `w-full border-none outline-0 ${ newClass?.fieldsetClass ?? "" }`,
             labelClassName: `font-roboto not-italic font-normal ${ newClass?.labelClass ?? "" }`,
-            inputClassName: `w-full outline-0 font-roboto${ newClass?.inputClass ?? "" }`,
+            inputClassName: `w-full outline-0 font-roboto ${ newClass?.inputClass ?? "" }`,
         })
 };
 
