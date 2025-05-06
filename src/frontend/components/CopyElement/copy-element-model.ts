@@ -1,7 +1,7 @@
 import { createButton } from "@/frontend/ui/button-ui";
 
-export function copyElementModel(){
-    const handleCopyArea = (value: string | number) => {
+export function copyElementModel(value: string | number){
+    const handleCopyArea = () => {
         navigator.clipboard.writeText(`${value}`)
             .then(() => {
                 alert("Valor copiado com sucesso");

@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { copyElementModel } from "./copy-element-model";
 
-type ModalButtonViewProps = { value: string | number; } & ReturnType<typeof copyElementModel>;
+type ModalButtonViewProps = ReturnType<typeof copyElementModel>;
 
-export function CopyElementView({ Button, value, ...props }: ModalButtonViewProps) {
+export function CopyElementView({ Button, ...props }: ModalButtonViewProps) {
     return (
-        <Button arial-label="Copiar o valor" onClick={() => props.handleCopyArea(value) }>
+        <Button arial-label="Copiar o valor" onClick={props.handleCopyArea}>
             <Image
                 src="/file.svg"
                 width={24}
