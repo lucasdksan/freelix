@@ -5,7 +5,7 @@ describe("estimateTermValue", () => {
         const result = estimateTermValue({
             seniority: "junior",
             experience: 1,
-            complexity: "baixa",
+            complexity: "low",
             monthlyCost: 3000,
             dailyHoursAvailable: 6,
         });
@@ -20,7 +20,7 @@ describe("estimateTermValue", () => {
         const result = estimateTermValue({
             seniority: "senior",
             experience: 100,
-            complexity: "alta",
+            complexity: "high",
             monthlyCost: 500,
             dailyHoursAvailable: 8,
         });
@@ -33,7 +33,7 @@ describe("estimateTermValue", () => {
         const withDefaultMargin = estimateTermValue({
             seniority: "pleno",
             experience: 5,
-            complexity: "media",
+            complexity: "mid",
             monthlyCost: 4000,
             dailyHoursAvailable: 8,
         });
@@ -41,7 +41,7 @@ describe("estimateTermValue", () => {
         const withHigherMargin = estimateTermValue({
             seniority: "pleno",
             experience: 5,
-            complexity: "media",
+            complexity: "mid",
             monthlyCost: 4000,
             dailyHoursAvailable: 8,
             profitMargin: 50,
@@ -54,7 +54,7 @@ describe("estimateTermValue", () => {
         const result = estimateTermValue({
             seniority: "junior",
             experience: -10,
-            complexity: "baixa",
+            complexity: "low",
             monthlyCost: 0,
             dailyHoursAvailable: 0,
         });
@@ -67,7 +67,7 @@ describe("estimateTermValue", () => {
         const result1 = estimateTermValue({
             seniority: "senior",
             experience: 40,
-            complexity: "baixa",
+            complexity: "low",
             monthlyCost: 6000,
             dailyHoursAvailable: 10,
         });
@@ -75,7 +75,7 @@ describe("estimateTermValue", () => {
         const result2 = estimateTermValue({
             seniority: "junior",
             experience: 0,
-            complexity: "alta",
+            complexity: "high",
             monthlyCost: 6000,
             dailyHoursAvailable: 4,
         });
