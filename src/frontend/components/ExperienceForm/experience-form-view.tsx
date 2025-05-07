@@ -48,13 +48,14 @@ export function ExperienceFormView({
                             placeholder="2"
                             type="number"
                             min={0}
+                            defaultValue={0}
                             {...register("certificationsCount", { valueAsNumber: true })}
                         />
                         {errors.certificationsCount && <p className="text-red-500">{errors.certificationsCount.message}</p>}
                     </div>
                 </>
             )}
-            {step === 2 && (!errors.certificationsCount && !errors.yearsOfExperience) && (
+            {step === 2 && (
                 <>
                     <div>
                         <Select
@@ -76,12 +77,12 @@ export function ExperienceFormView({
                     </div>
                 </>
             )}
-            {step === 3 && (!errors.specializationArea && !errors.skillLevel) && !finalResult && (
+            {step === 3 && !finalResult && (
                 <div className="flex flex-row items-start gap-3 mt-2 mb-4">
                     <span className="font-roboto not-italic font-normal text-white text-md">Clique no botão gerar para visualizar o resultado final</span>
                 </div>
             )}
-            {step === 3 && (!errors.specializationArea && !errors.skillLevel) && finalResult && (
+            {step === 3 && finalResult && (
                 <div className="flex flex-row items-start gap-3 mt-2 mb-4">
                     <span className="font-roboto not-italic font-normal text-white text-md">Seu resultado final: { finalResult } </span>
                     <CopyElementViewModel value={finalResult} />

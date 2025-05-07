@@ -44,6 +44,7 @@ export function SalaryFormView({
                             title="Benefícios (R$)"
                             placeholder="800"
                             type="number"
+                            defaultValue={0}
                             min={0}
                             {...register("benefitsValue", { valueAsNumber: true })}
                         />
@@ -51,7 +52,7 @@ export function SalaryFormView({
                     </div>
                 </>
             )}
-            {step === 2 && (!errors.benefitsValue && !errors.monthlySalary) && (
+            {step === 2 && (
                 <>
                     <div>
                         <Input
@@ -60,6 +61,7 @@ export function SalaryFormView({
                             placeholder="160"
                             type="number"
                             min={0}
+                            defaultValue={160}
                             {...register("workingHoursPerMonth", { valueAsNumber: true })}
                         />
                         {errors.workingHoursPerMonth && <p className="text-red-500">{errors.workingHoursPerMonth.message}</p>}
@@ -71,6 +73,7 @@ export function SalaryFormView({
                             placeholder="1"
                             type="number"
                             min={0}
+                            defaultValue={1.3}
                             step={0.1}
                             {...register("freelanceMultiplier", { valueAsNumber: true })}
                         />
@@ -78,12 +81,12 @@ export function SalaryFormView({
                     </div>
                 </>
             )}
-            {step === 3 && (!errors.freelanceMultiplier && !errors.workingHoursPerMonth) && !finalResult && (
+            {step === 3 && !finalResult && (
                 <div className="flex flex-row items-start gap-3 mt-2 mb-4">
                     <span className="font-roboto not-italic font-normal text-white text-md">Clique no botão gerar para visualizar o resultado final</span>
                 </div>
             )}
-            {step === 3 && (!errors.freelanceMultiplier && !errors.workingHoursPerMonth) && finalResult && (
+            {step === 3 && finalResult && (
                 <div className="flex flex-row items-start gap-3 mt-2 mb-4">
                     <span className="font-roboto not-italic font-normal text-white text-md">Seu resultado final: { finalResult } </span>
                     <CopyElementViewModel value={finalResult} />
