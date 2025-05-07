@@ -1,30 +1,29 @@
 "use client"
 
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { EstimateTermFormData, schema } from "./estimate-term-schema";
+import { estimateTermValue } from "@/frontend/services/estimate-term-value-service";
 import { createFormStep } from "@/frontend/ui/form-step-ui";
 import { createFieldsetInput } from "@/frontend/ui/fieldset-input-ui";
-import { calculateExperience } from "@/frontend/services/calculate-experience-service";
-import { ExperienceFormData, schema } from "./experience-schema";
 import { createFieldsetSelect } from "@/frontend/ui/fieldset-select-ui";
 
-export function experienceFormModel() {
+export function estimateTermFormModel() {
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm<ExperienceFormData>({
+    } = useForm({
         resolver: zodResolver(schema),
     });
     const [step, setStep] = useState(1);
-    const [finalResult, setFinalResult] = useState<null | number>(null);
-    const nextStep = () => setStep((prev) => prev === 3 ? prev : ++prev);
+    const nextStep = () => setStep((prev) => prev === 4 ? prev : ++prev);
     const prevStep = () => setStep((prev) => prev === 1 ? prev : --prev);
-    const onSubmit = (data: ExperienceFormData) => {
-        const result = calculateExperience(data);
+    const onSubmit = (data: EstimateTermFormData) => {
+        const result = estimateTermValue(data);
 
-        setFinalResult(result);
+        // setFinalResult(result);
     }
     const Form = createFormStep("default");
     const Input = createFieldsetInput("default", {
@@ -37,31 +36,29 @@ export function experienceFormModel() {
         fieldsetClass: "flex flex-col items-start justify-center gap-2 mb-2",
         labelClass: "text-base text-white text-center",
     });
-    const specializationAreaList = [
-        { title: "Tech", value: "tech" },
-        { title: "Design", value: "design" },
-        { title: "Business", value: "business" },
-        { title: "Marketing", value: "marketing" }
-    ];
-    const skillLevelList = [
+    const seniorityList = [
         { title: "Junior", value: "junior" },
         { title: "Pleno", value: "pleno" },
-        { title: "Sênior", value: "senior" },
+        { title: "Sênior", value: "senior" }
+    ];
+    const complexityList = [
+        { title: "Baixa", value: "low" }, 
+        { title: "Média", value: "mid" },
+        { title: "Alta", value: "high" }
     ];
 
     return {
         step,
         errors,
-        finalResult,
-        skillLevelList,
-        specializationAreaList,
+        seniorityList,
+        complexityList,
         Form,
         Input,
         Select,
-        onSubmit,
-        register,
         nextStep,
         prevStep,
+        onSubmit,
+        register,
         handleSubmit,
     };
 }

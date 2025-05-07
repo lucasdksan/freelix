@@ -1,5 +1,5 @@
 type Level = "junior" | "pleno" | "senior";
-type Complexity = "baixa" | "media" | "alta";
+type Complexity = "low" | "mid" | "high";
 type EstimateInput = {
     seniority: Level;
     experience: number;
@@ -24,9 +24,9 @@ export function estimateTermValue({
     };
 
     const complexityFactor: Record<Complexity, { term: number; cost: number }> = {
-        baixa: { term: 1, cost: 1 },
-        media: { term: 1.3, cost: 1.15 },
-        alta: { term: 1.6, cost: 1.4 },
+        low: { term: 1, cost: 1 },
+        mid: { term: 1.3, cost: 1.15 },
+        high: { term: 1.6, cost: 1.4 },
     };
 
     const validExperience = Math.max(0, Math.min(experience, 50));
