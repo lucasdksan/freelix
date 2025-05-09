@@ -3,7 +3,10 @@ type ExperienceInput = {
     skillLevel: "junior" | "pleno" | "senior";
     certificationsCount?: number;
     specializationArea?: "tech" | "design" | "business" | "marketing";
-}
+
+    completedProjects?: number;
+    recurringClients?: number;
+};
 
 const dataSkillLevel = {
     "junior": {
@@ -18,27 +21,43 @@ const dataSkillLevel = {
         baseRate: 80,
         growthRatePerYear: 0.05,
     },
-}
+};
 
 const dataSpecializationArea = {
     "tech": 1.1,
     "design": 1.05,
     "business": 1,
     "marketing": 0.95,
-}
+};
 
 export function calculateExperience({
     skillLevel,
     yearsOfExperience,
     certificationsCount = 0,
     specializationArea = "tech",
+    completedProjects = 0,
+    recurringClients = 0,
 }: ExperienceInput) {
     const sanitizedYears = Math.max(0, Math.min(yearsOfExperience, 40));
     const { baseRate, growthRatePerYear } = dataSkillLevel[skillLevel];
-    const experienceMultiplier = Math.pow(1 + growthRatePerYear, sanitizedYears);
-    const certificationBonusMultiplier = 1 + certificationsCount * 0.02;
+
+    const experienceMultiplier = 1 + (growthRatePerYear * sanitizedYears);
+
+    const maxCertifications = Math.min(certificationsCount, 5);
+    const certificationBonusMultiplier = 1 + maxCertifications * 0.01;
+
     const specializationMultiplier = dataSpecializationArea[specializationArea];
-    const hourlyRate = baseRate * experienceMultiplier * certificationBonusMultiplier * specializationMultiplier;
+
+    const projectMultiplier = 1 + Math.min(completedProjects * 0.005, 0.10);
+    const clientMultiplier = 1 + Math.min(recurringClients * 0.01, 0.05);
+
+    const hourlyRate =
+        baseRate *
+        experienceMultiplier *
+        certificationBonusMultiplier *
+        specializationMultiplier *
+        projectMultiplier *
+        clientMultiplier;
 
     return Math.round(hourlyRate);
 }

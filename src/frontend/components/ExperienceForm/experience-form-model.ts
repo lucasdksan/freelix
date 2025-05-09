@@ -19,7 +19,7 @@ export function experienceFormModel() {
     });
     const [step, setStep] = useState(1);
     const [finalResult, setFinalResult] = useState<null | number>(null);
-    const nextStep = () => setStep((prev) => prev === 3 ? prev : ++prev);
+    const nextStep = () => setStep((prev) => prev === 4 ? prev : ++prev);
     const prevStep = () => setStep((prev) => prev === 1 ? prev : --prev);
     const onSubmit = (data: ExperienceFormData) => {
         const result = calculateExperience(data);

@@ -21,7 +21,7 @@ export function ExperienceFormView({
     step }: ExperienceFormViewProps) {
     return (
         <Form
-            maxQuantity={3}
+            maxQuantity={4}
             nextStep={nextStep}
             prevStep={prevStep}
             step={step}
@@ -77,12 +77,40 @@ export function ExperienceFormView({
                     </div>
                 </>
             )}
-            {step === 3 && !finalResult && (
+            { step === 3 && (
+                <>
+                    <div>
+                        <Input
+                            htmlFor="completedProjects"
+                            title="Quantos projetos finalizados"
+                            placeholder="10"
+                            type="number"
+                            min={1}
+                            defaultValue={0}
+                            {...register("completedProjects", { valueAsNumber: true })}
+                        />
+                        {errors.completedProjects && <p className="text-red-500">{errors.completedProjects.message}</p>}
+                    </div>
+                    <div>
+                        <Input
+                            htmlFor="recurringClients"
+                            title="Clientes recorrentes"
+                            placeholder="2"
+                            type="number"
+                            min={0}
+                            defaultValue={0}
+                            {...register("recurringClients", { valueAsNumber: true })}
+                        />
+                        {errors.recurringClients && <p className="text-red-500">{errors.recurringClients.message}</p>}
+                    </div>
+                </>
+            ) }
+            {step === 4 && !finalResult && (
                 <div className="flex flex-row items-start gap-3 mt-2 mb-4">
                     <span className="font-roboto not-italic font-normal text-white text-md">Clique no botão gerar para visualizar o resultado final</span>
                 </div>
             )}
-            {step === 3 && finalResult && (
+            {step === 4 && finalResult && (
                 <div className="flex flex-row items-start gap-3 mt-2 mb-4">
                     <span className="font-roboto not-italic font-normal text-white text-md">Seu resultado final: { finalResult } </span>
                     <CopyElementViewModel value={finalResult} />
