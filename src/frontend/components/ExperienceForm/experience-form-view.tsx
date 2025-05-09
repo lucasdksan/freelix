@@ -25,7 +25,7 @@ export function ExperienceFormView({
             nextStep={nextStep}
             prevStep={prevStep}
             step={step}
-            titleForm="Calcular baseado em Salário"
+            titleForm="Calcular baseado em Experiência"
             onSubmit={handleSubmit(onSubmit)}
         >
             {step === 1 && (

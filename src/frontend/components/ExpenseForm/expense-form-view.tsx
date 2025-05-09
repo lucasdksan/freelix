@@ -23,7 +23,7 @@ export function ExpenseFormView({
             nextStep={nextStep}
             prevStep={prevStep}
             step={step}
-            titleForm="Calcular baseado em despesas"
+            titleForm="Calcular baseado em Despesas"
             onSubmit={handleSubmit(onSubmit)}
         >
             {step === 1 && (

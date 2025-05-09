@@ -1,24 +1,29 @@
 "use client"
 
+import Image from "next/image";
 import { CopyElementViewModel } from "../CopyElement/copy-element-viewmodel";
 import { estimateTermFormModel } from "./estimate-term-form-model";
 
-type EstimateTermFormViewProps = {} & ReturnType<typeof estimateTermFormModel>;
+type EstimateTermFormViewProps = {
+    handleComeBack: () => void;
+} & ReturnType<typeof estimateTermFormModel>;
 
 export function EstimateTermFormView({
     Form,
     Input,
     Select,
-    complexityList,
-    errors,
     handleSubmit,
     nextStep,
     onSubmit,
     prevStep,
     register,
+    ComeBackButton,
+    handleComeBack,
     seniorityList,
     finalResult,
-    step
+    step,
+    complexityList,
+    errors,
 }: EstimateTermFormViewProps) {
     return (
         <Form
@@ -28,7 +33,15 @@ export function EstimateTermFormView({
             step={step}
             onSubmit={handleSubmit(onSubmit)}
             titleForm="Estimativa para seu projeto"
-        >
+        >   
+            <ComeBackButton onClick={handleComeBack}>
+                <Image 
+                    src="/arrow-left.svg"
+                    width={24}
+                    height={24}
+                    alt="Come Back btn"
+                />
+            </ComeBackButton>
             {step === 1 && (
                 <>
                     <div>

@@ -3,11 +3,16 @@
 import { estimateTermFormModel } from "./estimate-term-form-model"
 import { EstimateTermFormView } from "./estimate-term-form-view";
 
-export function EstimateTermFormViewModel(){
+type EstimateTermFormViewModelProps = {
+    comeBack: () => void;
+};
+
+export function EstimateTermFormViewModel({ comeBack }: EstimateTermFormViewModelProps){
     const model = estimateTermFormModel();
 
     return(
-        <EstimateTermFormView 
+        <EstimateTermFormView
+            handleComeBack={comeBack} 
             { ...model }
         />
     );

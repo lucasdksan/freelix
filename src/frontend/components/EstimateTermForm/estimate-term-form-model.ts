@@ -8,6 +8,7 @@ import { estimateTermValue } from "@/frontend/services/estimate-term-value-servi
 import { createFormStep } from "@/frontend/ui/form-step-ui";
 import { createFieldsetInput } from "@/frontend/ui/fieldset-input-ui";
 import { createFieldsetSelect } from "@/frontend/ui/fieldset-select-ui";
+import { createButton } from "@/frontend/ui/button-ui";
 
 type FinalResultState = ReturnType<typeof estimateTermValue>;
 
@@ -39,6 +40,7 @@ export function estimateTermFormModel() {
         fieldsetClass: "flex flex-col items-start justify-center gap-2 mb-2",
         labelClass: "text-base text-white text-center",
     });
+    const ComeBackButton = createButton("default", "fixed right-10 top-3");
     const seniorityList = [
         { title: "Junior", value: "junior" },
         { title: "Pleno", value: "pleno" },
@@ -63,6 +65,7 @@ export function estimateTermFormModel() {
         prevStep,
         onSubmit,
         register,
+        ComeBackButton,
         handleSubmit,
     };
 }
