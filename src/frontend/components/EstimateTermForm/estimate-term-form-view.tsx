@@ -17,6 +17,7 @@ export function EstimateTermFormView({
     prevStep,
     register,
     seniorityList,
+    finalResult,
     step
 }: EstimateTermFormViewProps) {
     return (
@@ -106,14 +107,14 @@ export function EstimateTermFormView({
                     </div>
                 </>
             )}
-            {step === 4 && (
+            {step === 4 && !finalResult && (
                 <div className="flex flex-row items-start gap-3 mt-2 mb-4">
                     <span className="font-roboto not-italic font-normal text-white text-md">Clique no botão gerar para visualizar o resultado final</span>
                 </div>
             )}
-            {step === 4 && (
+            {step === 4 && finalResult && (
                 <div className="flex flex-row items-start gap-3 mt-2 mb-4">
-                    <span className="font-roboto not-italic font-normal text-white text-md">Seu resultado final: {8} </span>
+                    <span className="font-roboto not-italic font-normal text-white text-md">Seu resultado final: {finalResult.term} e {finalResult.value} </span>
                     <CopyElementViewModel value={8} />
                 </div>
             )}

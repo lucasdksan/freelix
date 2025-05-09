@@ -9,6 +9,8 @@ import { createFormStep } from "@/frontend/ui/form-step-ui";
 import { createFieldsetInput } from "@/frontend/ui/fieldset-input-ui";
 import { createFieldsetSelect } from "@/frontend/ui/fieldset-select-ui";
 
+type FinalResultState = ReturnType<typeof estimateTermValue>;
+
 export function estimateTermFormModel() {
     const {
         register,
@@ -18,12 +20,13 @@ export function estimateTermFormModel() {
         resolver: zodResolver(schema),
     });
     const [step, setStep] = useState(1);
+    const [finalResult, setFinalResult] = useState<null | FinalResultState>(null);
     const nextStep = () => setStep((prev) => prev === 4 ? prev : ++prev);
     const prevStep = () => setStep((prev) => prev === 1 ? prev : --prev);
     const onSubmit = (data: EstimateTermFormData) => {
         const result = estimateTermValue(data);
 
-        // setFinalResult(result);
+        setFinalResult(result);
     }
     const Form = createFormStep("default");
     const Input = createFieldsetInput("default", {
@@ -50,6 +53,7 @@ export function estimateTermFormModel() {
     return {
         step,
         errors,
+        finalResult,
         seniorityList,
         complexityList,
         Form,
