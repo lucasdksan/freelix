@@ -7,6 +7,7 @@ const createJestConfig = nextJest({
 const customJestConfig = {
     setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
     moduleNameMapper: {
+        "^@/(.*)$": "<rootDir>/src/$1",
         "^@/components/(.*)$": "<rootDir>/frontend/components/$1",
         "^@/services/(.*)$": "<rootDir>/frontend/services/$1",
         "^@/utils/(.*)$": "<rootDir>/utils/$1",
