@@ -26,9 +26,9 @@ export function TimeLogicView({
                 />
             </ComeBackButton>
             { !kindOfProcess && (
-                <div>
-                    <h2>Agora escolha uma das opçoes</h2>
-                    <p>Cada metodo é unico e pode gerar resultado diferente.</p>
+                <div className="flex flex-col justify-start items-start gap-2 mb-4">
+                    <h2 className="font-roboto not-italic font-normal text-xl text-white text-left">Escolha uma delas</h2>
+                    <p className="font-roboto not-italic font-normal text-base text-white text-left">Cada metodo é unico e pode gerar resultado diferente.</p>
                 </div>
             ) }
             { kindOfProcess && (typeof Element === "function" ? <Element /> : Element) }

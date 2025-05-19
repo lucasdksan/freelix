@@ -10,9 +10,9 @@ export function AppLogicView({ Button, handleChageTypeProcess, handleBackToStart
     return(
         <div>
             { !kindOfProcess && (
-                <div>
-                    <h2>Vamos começar?</h2>
-                    <span>Agora selecione umas das opções abaixo para iniciar o processe.</span>
+                <div className="flex flex-col justify-start items-start gap-2 mb-4">
+                    <h2 className="font-roboto not-italic font-normal text-xl text-white text-center">Vamos começar?</h2>
+                    <span className="font-roboto not-italic font-normal text-base text-white text-left">Agora selecione umas das opções abaixo para iniciar o processe.</span>
                 </div>
             ) }
             { kindOfProcess &&  (typeof Element === "function" ? <Element comeBack={handleBackToStart} /> : Element)}

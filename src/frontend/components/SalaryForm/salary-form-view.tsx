@@ -88,7 +88,7 @@ export function SalaryFormView({
             )}
             {step === 3 && finalResult && (
                 <div className="flex flex-row items-start gap-3 mt-2 mb-4">
-                    <span className="font-roboto not-italic font-normal text-white text-md">Seu resultado final: { finalResult } </span>
+                    <span className="font-roboto not-italic font-normal text-white text-md">Seu resultado final: <strong>{ finalResult }</strong> </span>
                     <CopyElementViewModel value={finalResult} />
                 </div>
             )}

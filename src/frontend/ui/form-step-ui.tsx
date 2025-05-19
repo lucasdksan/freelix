@@ -38,7 +38,7 @@ export function createFormStep(strategy: StrategiesValues = "default") {
                 <h2 className={getStyle().title}>{titleForm}</h2>
                 <form className={getStyle().form} { ...props }>
                     { children }
-                    <div className="flex justify-between mt-3 gap-4">
+                    <div className="flex justify-start mt-3 gap-4">
                         <Button type="button" onClick={prevStep} disabled={step === 1}>
                             Voltar
                         </Button>
