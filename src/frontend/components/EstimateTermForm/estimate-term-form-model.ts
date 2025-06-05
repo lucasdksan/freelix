@@ -22,13 +22,14 @@ export function estimateTermFormModel() {
     });
     const [step, setStep] = useState(1);
     const [finalResult, setFinalResult] = useState<null | FinalResultState>(null);
-    const nextStep = () => setStep((prev) => prev === 4 ? prev : ++prev);
+    const nextStep = () => setStep((prev) => prev === 9 ? prev : ++prev);
     const prevStep = () => setStep((prev) => prev === 1 ? prev : --prev);
     const onSubmit = (data: EstimateTermFormData) => {
         const result = estimateTermValue(data);
 
         setFinalResult(result);
     }
+    const Button = createButton("modalBtn", "disabled:bg-[#dee2e6] items-center justify-center gap-2 px-2 py-1 bg-white text-black text-lg text-center");
     const Form = createFormStep("default");
     const Input = createFieldsetInput("default", {
         inputClass: "p-2 border-2 rounded-lg text-white text-start",
@@ -60,6 +61,7 @@ export function estimateTermFormModel() {
         complexityList,
         Form,
         Input,
+        Button,
         Select,
         nextStep,
         prevStep,

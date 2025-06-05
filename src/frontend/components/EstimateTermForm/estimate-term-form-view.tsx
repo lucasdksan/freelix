@@ -1,8 +1,8 @@
 "use client"
 
 import Image from "next/image";
-import { CopyElementViewModel } from "../CopyElement/copy-element-viewmodel";
 import { estimateTermFormModel } from "./estimate-term-form-model";
+import GenerateFileViewModel from "../GenerateFile/generate-file-viewmodel";
 
 type EstimateTermFormViewProps = {
     handleComeBack: () => void;
@@ -11,6 +11,7 @@ type EstimateTermFormViewProps = {
 export function EstimateTermFormView({
     Form,
     Input,
+    Button,
     Select,
     handleSubmit,
     nextStep,
@@ -27,15 +28,18 @@ export function EstimateTermFormView({
 }: EstimateTermFormViewProps) {
     return (
         <Form
-            maxQuantity={4}
+            maxQuantity={9}
             nextStep={nextStep}
             prevStep={prevStep}
             step={step}
             onSubmit={handleSubmit(onSubmit)}
             titleForm="Estimativa para seu projeto"
-        >   
+            moreBtn={(step === 4 && finalResult) && (
+                <Button>Próxima Etapa</Button>
+            )}
+        >
             <ComeBackButton onClick={handleComeBack}>
-                <Image 
+                <Image
                     src="/arrow-left.svg"
                     width={24}
                     height={24}
@@ -120,15 +124,132 @@ export function EstimateTermFormView({
                     </div>
                 </>
             )}
-            {step === 4 && !finalResult && (
+            {step === 4 && (
+                <>
+                    <div>
+                        <Input
+                            htmlFor="city"
+                            title="Cidade"
+                            placeholder="Parnamirim"
+                            type="text"
+                            defaultValue=""
+                            {...register("city")}
+                        />
+                        {errors.city && <p className="text-red-500">{errors.city.message}</p>}
+                    </div>
+                    <div>
+                        <Input
+                            htmlFor="nameCompany"
+                            title="Nome da Sua Empresa"
+                            placeholder="Vtex"
+                            type="text"
+                            defaultValue=""
+                            {...register("nameCompany")}
+                        />
+                        {errors.nameCompany && <p className="text-red-500">{errors.nameCompany.message}</p>}
+                    </div>
+                </>
+            )}
+            {step === 5 && (
+                <>
+                    <div>
+                        <Input
+                            htmlFor="partners"
+                            title="Parceiros"
+                            placeholder="Parnamirim"
+                            type="text"
+                            defaultValue=""
+                            {...register("partners")}
+                        />
+                        {errors.partners && <p className="text-red-500">{errors.partners.message}</p>}
+                    </div>
+                    <div>
+                        <Input
+                            htmlFor="descriptionProducts"
+                            title="Descrição do serviço"
+                            placeholder="Descrição"
+                            type="text"
+                            defaultValue=""
+                            {...register("descriptionProducts")}
+                        />
+                        {errors.descriptionProducts && <p className="text-red-500">{errors.descriptionProducts.message}</p>}
+                    </div>
+                </>
+            )}
+            {step === 6 && (
+                <>
+                    <div>
+                        <Input
+                            htmlFor="name"
+                            title="Seu nome"
+                            placeholder="João"
+                            type="text"
+                            defaultValue=""
+                            {...register("name")}
+                        />
+                        {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+                    </div>
+                    <div>
+                        <Input
+                            htmlFor="introduction"
+                            title="Texto sobre introdutorio"
+                            placeholder="Introdução"
+                            type="text"
+                            defaultValue=""
+                            {...register("introduction")}
+                        />
+                        {errors.introduction && <p className="text-red-500">{errors.introduction.message}</p>}
+                    </div>
+                </>
+            )}
+            {step === 7 && (
+                <>
+                    <div>
+                        <Input
+                            htmlFor="scope"
+                            title="Escopo do projeto"
+                            type="text"
+                            defaultValue=""
+                            {...register("scope")}
+                        />
+                        {errors.scope && <p className="text-red-500">{errors.scope.message}</p>}
+                    </div>
+                    <div>
+                        <Input
+                            htmlFor="address"
+                            title="Endereço"
+                            type="text"
+                            defaultValue=""
+                            {...register("address")}
+                        />
+                        {errors.address && <p className="text-red-500">{errors.address.message}</p>}
+                    </div>
+                </>
+            )}
+            {step === 8 && (
+                <div>
+                    <Input
+                        htmlFor="phone"
+                        title="Número para contrato"
+                        type="text"
+                        defaultValue=""
+                        {...register("phone")}
+                    />
+                    {errors.phone && <p className="text-red-500">{errors.phone.message}</p>}
+                </div>
+            )}
+            {step === 9 && !finalResult && (
                 <div className="flex flex-row items-start gap-3 mt-2 mb-4">
                     <span className="font-roboto not-italic font-normal text-white text-md">Clique no botão gerar para visualizar o resultado final</span>
                 </div>
             )}
-            {step === 4 && finalResult && (
-                <div className="flex flex-row items-start gap-3 mt-2 mb-4">
-                    <span className="font-roboto not-italic font-normal text-white text-md">Seu resultado final: {finalResult.term} e {finalResult.value} </span>
-                    <CopyElementViewModel value={8} />
+            {step === 9 && finalResult && (
+                <div className="flex flex-row items-end justify-start gap-3 mt-2 mb-4">
+                    <span className="font-roboto not-italic font-normal text-white text-md">Seu resultado final: <br /> {finalResult.term} e {finalResult.value} </span>
+                    {/* <GenerateFileViewModel 
+                        months={finalResult.months}
+                        valueNumeric={finalResult.valueNumeric}
+                    /> */}
                 </div>
             )}
         </Form>

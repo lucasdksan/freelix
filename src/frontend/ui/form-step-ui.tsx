@@ -6,6 +6,7 @@ type FieldsetFormProps = {
     step: number;
     maxQuantity: number;
     children: React.ReactNode;
+    moreBtn?: React.ReactNode;
     prevStep: () => void;
     nextStep: () => void;
 } & React.FormHTMLAttributes<HTMLFormElement>;
@@ -27,6 +28,7 @@ export function createFormStep(strategy: StrategiesValues = "default") {
     return function({
         nextStep, 
         prevStep,
+        moreBtn,
         maxQuantity,
         titleForm,
         children,
@@ -47,9 +49,12 @@ export function createFormStep(strategy: StrategiesValues = "default") {
                                 Próximo
                             </Button>
                         ) : (
-                            <Button type="submit">
-                                Gerar
-                            </Button>
+                            <>
+                                <Button type="submit">
+                                    Gerar
+                                </Button>
+                                { moreBtn }
+                            </>
                         ) }
                     </div>
                 </form>
