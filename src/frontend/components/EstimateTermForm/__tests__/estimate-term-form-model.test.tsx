@@ -27,8 +27,15 @@ describe("estimateTermFormModel", () => {
             result.current.nextStep();
             result.current.nextStep();
             result.current.nextStep();
+            result.current.nextStep();
+            result.current.nextStep();
+            result.current.nextStep();
+            result.current.nextStep();
+            result.current.nextStep();
+            result.current.nextStep();
+            result.current.nextStep();
         });
 
-        expect(result.current.step).toBe(4);
+        expect(result.current.step).toBe(10);
     });
 });

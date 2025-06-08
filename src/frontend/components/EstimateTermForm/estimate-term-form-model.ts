@@ -9,6 +9,7 @@ import { createFormStep } from "@/frontend/ui/form-step-ui";
 import { createFieldsetInput } from "@/frontend/ui/fieldset-input-ui";
 import { createFieldsetSelect } from "@/frontend/ui/fieldset-select-ui";
 import { createButton } from "@/frontend/ui/button-ui";
+import { createFieldsetTextArea } from "@/frontend/ui/fieldset-textarea-ui";
 
 type FinalResultState = ReturnType<typeof estimateTermValue>;
 
@@ -17,12 +18,13 @@ export function estimateTermFormModel() {
         register,
         handleSubmit,
         formState: { errors },
+        getValues,
     } = useForm({
         resolver: zodResolver(schema),
     });
     const [step, setStep] = useState(1);
     const [finalResult, setFinalResult] = useState<null | FinalResultState>(null);
-    const nextStep = () => setStep((prev) => prev === 9 ? prev : ++prev);
+    const nextStep = () => setStep((prev) => prev === 10 ? prev : ++prev);
     const prevStep = () => setStep((prev) => prev === 1 ? prev : --prev);
     const onSubmit = (data: EstimateTermFormData) => {
         const result = estimateTermValue(data);
@@ -38,6 +40,11 @@ export function estimateTermFormModel() {
     });
     const Select = createFieldsetSelect("default", {
         selectClass: "p-2 border-2 h-11 rounded-lg text-white text-start",
+        fieldsetClass: "flex flex-col items-start justify-center gap-2 mb-2",
+        labelClass: "text-base text-white text-center",
+    });
+    const Textarea = createFieldsetTextArea("default", {
+        textAreaClass: "p-2 border-2 min-h-[100px] rounded-lg text-white text-start",
         fieldsetClass: "flex flex-col items-start justify-center gap-2 mb-2",
         labelClass: "text-base text-white text-center",
     });
@@ -63,10 +70,12 @@ export function estimateTermFormModel() {
         Input,
         Button,
         Select,
+        Textarea,
         nextStep,
         prevStep,
         onSubmit,
         register,
+        getValues,
         ComeBackButton,
         handleSubmit,
     };

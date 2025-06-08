@@ -1,3 +1,4 @@
+import { phoneMask } from "@/frontend/utils/_phone-mask-util";
 import { z } from "zod";
 
 export const schema = z.object({
@@ -22,7 +23,12 @@ export const schema = z.object({
     scope: z.string(),
     address: z.string(), 
     
-    phone: z.string(),
+    phone: z.string()
+        .transform((val) => val.replace(/\D/g, ""))
+        .refine((val) => val.length >= 10 && val.length <= 11, {
+            message: "Telefone inválido",
+        })
+        .transform(phoneMask)
 });
 
 export type EstimateTermFormData = z.infer<typeof schema>;

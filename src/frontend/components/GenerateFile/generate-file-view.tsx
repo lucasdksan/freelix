@@ -5,7 +5,7 @@ type GenerateFileViewProps = ReturnType<typeof generateFileModel>;
 
 export default function GenerateFileView({ Button, ...props }: GenerateFileViewProps){
     return (
-        <Button aria-label="Generate File">
+        <Button onClick={props.handleGenerateFile} aria-label="Generate File">
             <Image
                 src="/file.svg"
                 width={24}

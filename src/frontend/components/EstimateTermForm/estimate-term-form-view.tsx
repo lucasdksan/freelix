@@ -13,7 +13,9 @@ export function EstimateTermFormView({
     Input,
     Button,
     Select,
+    Textarea,
     handleSubmit,
+    getValues,
     nextStep,
     onSubmit,
     prevStep,
@@ -28,7 +30,7 @@ export function EstimateTermFormView({
 }: EstimateTermFormViewProps) {
     return (
         <Form
-            maxQuantity={9}
+            maxQuantity={10}
             nextStep={nextStep}
             prevStep={prevStep}
             step={step}
@@ -156,28 +158,13 @@ export function EstimateTermFormView({
                         <Input
                             htmlFor="partners"
                             title="Parceiros"
-                            placeholder="Parnamirim"
+                            placeholder="João Silva, Maria Souza"
                             type="text"
                             defaultValue=""
                             {...register("partners")}
                         />
                         {errors.partners && <p className="text-red-500">{errors.partners.message}</p>}
                     </div>
-                    <div>
-                        <Input
-                            htmlFor="descriptionProducts"
-                            title="Descrição do serviço"
-                            placeholder="Descrição"
-                            type="text"
-                            defaultValue=""
-                            {...register("descriptionProducts")}
-                        />
-                        {errors.descriptionProducts && <p className="text-red-500">{errors.descriptionProducts.message}</p>}
-                    </div>
-                </>
-            )}
-            {step === 6 && (
-                <>
                     <div>
                         <Input
                             htmlFor="name"
@@ -189,30 +176,19 @@ export function EstimateTermFormView({
                         />
                         {errors.name && <p className="text-red-500">{errors.name.message}</p>}
                     </div>
-                    <div>
-                        <Input
-                            htmlFor="introduction"
-                            title="Texto sobre introdutorio"
-                            placeholder="Introdução"
-                            type="text"
-                            defaultValue=""
-                            {...register("introduction")}
-                        />
-                        {errors.introduction && <p className="text-red-500">{errors.introduction.message}</p>}
-                    </div>
                 </>
             )}
-            {step === 7 && (
+            {step === 6 && (
                 <>
                     <div>
                         <Input
-                            htmlFor="scope"
-                            title="Escopo do projeto"
+                            htmlFor="phone"
+                            title="Número para contrato"
                             type="text"
                             defaultValue=""
-                            {...register("scope")}
+                            {...register("phone")}
                         />
-                        {errors.scope && <p className="text-red-500">{errors.scope.message}</p>}
+                        {errors.phone && <p className="text-red-500">{errors.phone.message}</p>}
                     </div>
                     <div>
                         <Input
@@ -226,30 +202,68 @@ export function EstimateTermFormView({
                     </div>
                 </>
             )}
-            {step === 8 && (
+            {step === 7 && (
                 <div>
-                    <Input
-                        htmlFor="phone"
-                        title="Número para contrato"
-                        type="text"
+                    <Textarea
+                        htmlFor="descriptionProducts"
+                        title="Descrição do serviço"
+                        placeholder="Descrição"
                         defaultValue=""
-                        {...register("phone")}
+                        {...register("descriptionProducts")}
                     />
-                    {errors.phone && <p className="text-red-500">{errors.phone.message}</p>}
+                    {errors.descriptionProducts && <p className="text-red-500">{errors.descriptionProducts.message}</p>}
                 </div>
             )}
-            {step === 9 && !finalResult && (
+            {step === 8 && (
+                <div>
+                    <Textarea
+                        htmlFor="scope"
+                        title="Escopo do projeto"
+                        defaultValue=""
+                        {...register("scope")}
+                    />
+                    {errors.scope && <p className="text-red-500">{errors.scope.message}</p>}
+                </div>
+            )}
+            {step === 9 && (
+                <div>
+                    <Textarea
+                        htmlFor="introduction"
+                        title="Introdução do projeto"
+                        placeholder="Introdução"
+                        defaultValue=""
+                        {...register("introduction")}
+                    />
+                    {errors.introduction && <p className="text-red-500">{errors.introduction.message}</p>}
+                </div>
+            )}
+            {step === 10 && !finalResult && (
                 <div className="flex flex-row items-start gap-3 mt-2 mb-4">
                     <span className="font-roboto not-italic font-normal text-white text-md">Clique no botão gerar para visualizar o resultado final</span>
                 </div>
             )}
-            {step === 9 && finalResult && (
+            {step === 10 && finalResult && (
                 <div className="flex flex-row items-end justify-start gap-3 mt-2 mb-4">
                     <span className="font-roboto not-italic font-normal text-white text-md">Seu resultado final: <br /> {finalResult.term} e {finalResult.value} </span>
-                    {/* <GenerateFileViewModel 
+                    <GenerateFileViewModel 
+                        address={getValues().address}
+                        city={getValues().city}
+                        complexity={getValues().complexity}
+                        dailyHoursAvailable={getValues().dailyHoursAvailable}
+                        descriptionProducts={getValues().descriptionProducts}
+                        experience={getValues().experience}
+                        introduction={getValues().introduction}
+                        monthlyCost={getValues().monthlyCost}
                         months={finalResult.months}
+                        name={getValues().name}
+                        nameCompany={getValues().nameCompany}
+                        phone={getValues().phone}
+                        scope={getValues().scope}
+                        seniority={getValues().seniority}
                         valueNumeric={finalResult.valueNumeric}
-                    /> */}
+                        partners={getValues().partners}
+                        profitMargin={getValues().profitMargin}
+                    />
                 </div>
             )}
         </Form>
