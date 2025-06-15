@@ -13,9 +13,9 @@ type Props = {
     address?: string;
     phone?: string;
     partners?: string | undefined;
-}
+};
 
-export function GenerateProposalHelper(props: Props): GenerateProposalDTO{
+export function GenerateProposalHelper(props: Props): GenerateProposalDTO {
     return {
         city: props.city ?? faker.location.city(),
         nameCompany: props.nameCompany ?? faker.company.name(),
@@ -24,7 +24,7 @@ export function GenerateProposalHelper(props: Props): GenerateProposalDTO{
         introduction: props.introduction ?? faker.lorem.paragraph(),
         scope: props.scope ?? faker.lorem.sentence(),
         term: props.term ?? `${faker.number.int({ min: 3, max: 12 })} meses`,
-        value: props.value ?? faker.finance.amount({ min: 10000, max: 50000, }),          
+        value: props.value ?? faker.finance.amount({ min: 10000, max: 50000, }),
         address: props.address ?? faker.location.streetAddress(),
         phone: props.phone ?? faker.phone.number({ style: "national" }),
         partners: props.partners ?? faker.person.fullName(),

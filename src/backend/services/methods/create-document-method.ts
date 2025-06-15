@@ -2,7 +2,7 @@ import { GenerateProposalDTO } from "@/backend/dtos/generate-proposal-dto";
 import { Document, HeadingLevel, Paragraph, TextRun, AlignmentType, TabStopPosition, SectionType, Footer } from "docx";
 
 export class CreateDocument {
-    private readonly date: Date = new Date();
+    private readonly date = new Date();
     private readonly months: string[] = [ "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" ];
     private createTocEntry(text: string, pageNumber: number): Paragraph {
         return new Paragraph({
@@ -42,7 +42,7 @@ export class CreateDocument {
                                     text: ", ",
                                 }),
                                 new TextRun({
-                                    text: `${this.date.getDay()}`,
+                                    text: `${this.date.getDate()}`,
                                     bold: true,
                                 }),
                                 new TextRun({
@@ -59,6 +59,7 @@ export class CreateDocument {
                                     text: `${this.date.getFullYear()}`,
                                     bold: true,
                                 }),
+                                new TextRun("\n"),
                             ],
                         }),
                         new Paragraph({
