@@ -5,8 +5,8 @@ import GenerateFileView from "./generate-file-view";
 import { EstimateTermFormData } from "../EstimateTermForm/estimate-term-schema";
 
 type GenerateFileViewModelProps = EstimateTermFormData & {
-    valueNumeric: number;
-    months: number;
+    valueNumeric: string;
+    months: string;
 };
 
 export default function GenerateFileViewModel(props: GenerateFileViewModelProps){ 

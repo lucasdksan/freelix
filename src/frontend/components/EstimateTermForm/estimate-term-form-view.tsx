@@ -254,13 +254,13 @@ export function EstimateTermFormView({
                         experience={getValues().experience}
                         introduction={getValues().introduction}
                         monthlyCost={getValues().monthlyCost}
-                        months={finalResult.months}
+                        months={finalResult.term}
                         name={getValues().name}
                         nameCompany={getValues().nameCompany}
                         phone={getValues().phone}
                         scope={getValues().scope}
                         seniority={getValues().seniority}
-                        valueNumeric={finalResult.valueNumeric}
+                        valueNumeric={finalResult.value}
                         partners={getValues().partners}
                         profitMargin={getValues().profitMargin}
                     />

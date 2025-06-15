@@ -2,8 +2,8 @@ import { createButton } from "@/frontend/ui/button-ui";
 import { EstimateTermFormData } from "../EstimateTermForm/estimate-term-schema";
 
 type generateFileModel = EstimateTermFormData & {
-    valueNumeric: number;
-    months: number;
+    valueNumeric: string;
+    months: string;
 };
 
 export default function generateFileModel({ ...body }: generateFileModel) {
